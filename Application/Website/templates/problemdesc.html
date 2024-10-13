@@ -1,0 +1,31 @@
+<!-- problemdesc.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="rounded-box">
+    <h1>{{ result[1] }}</h1>
+
+    <p>
+        <br>
+        <span class="bold-text"><strong>Difficulty Level:</strong></span> {{ result[0] }}
+        <br>
+        <span class="bold-text"><strong>Time limit per test:</strong></span> {{ result[3] }} seconds
+        <br>
+        <span class="bold-text"><strong>Memory limit per test:</strong></span> {{ result[4] }} megabytes
+        <br>
+        <span class="bold-text"><strong>Input:</strong></span> standard input
+        <br>
+        <span class="bold-text"><strong>Output:</strong></span> standard output
+        <br>
+    </p>
+
+    <h2 class="bold-text">Description</h2>
+    
+    <p>
+        {{ result[2]|safe }}
+    </p>
+</div>
+
+{% endblock %}

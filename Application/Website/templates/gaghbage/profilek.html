@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dakowdas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+
+<header>
+    <div class=myheader>
+        <div class="leftsectionofheader">
+            <img src="{{ url_for('static', filename='images/logo.png') }}">
+            <h1> Dakowdas </h1>
+        </div>
+
+        <div class="contactusbutton">
+            <a href="{{ url_for('views.contact') }}">Contact Us</a>
+        </div>
+
+    </div>
+</header>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('views.index') }}">Home</a></li>
+            <li><a href="{{ url_for('views.contests') }}">Contests</a></li>
+            <li><a href="{{ url_for('views.battles') }}">Battles</a></li>
+            <li><a href="{{ url_for('views.problems') }}">Problems</a></li>
+            <li><a href="{{ url_for('views.profile') }}">Profile</a></li>
+        </ul>
+    </nav>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!-- messageUser.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Message User</h1>
+
+    <h2>Send a Message to {{ user }}</h2>
+
+    <form method="post" action="{{ url_for('views.messageUser', user=user) }}">
+        <label for="message">Type your message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Add any additional content or features as needed -->
+
+{% endblock %}

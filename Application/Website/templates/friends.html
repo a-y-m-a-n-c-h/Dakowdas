@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="content-section">
+        <h2>Friends</h2>
+
+        <div class="friends-list">
+            {% if friends %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Friend Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for friend in friends %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ friend[0] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No friends to display.</p>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}

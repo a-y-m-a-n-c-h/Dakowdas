@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #E6E6FA;
+}
+
+.rounded-box {
+    position: relative; /* Ensure relative positioning for absolute child */
+    width: 1100px;
+    height: 600px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.rounded-box img {
+    width: 500px;
+    margin-top: 27px;
+    height: auto;
+    display: block;
+}
+.rounded-box .success-message {
+    margin-top:350px;
+    margin-left: 35px;
+    bottom: 120px; 
+    left: 700px; 
+    width: 500px;
+    height: auto;
+    display: block;
+    z-index: 1; /* Ensure the signup is above the semicircle */
+    font-size: 18px;
+    font-family: 'Courier', sans-serif;
+    
+    letter-spacing: -1px;
+    word-spacing: -2px;
+}
+
+.rounded-box .success-message {
+    color: green;
+}
+
+.rounded-box h1 {
+    color: #000033;
+    font-family: "Lucida Console";   
+    font-size: 30px; 
+    font-weight:bold; 
+    line-height: 48px; 
+    margin-top: 18px;
+    margin-left: 30px;
+}
+
+.rounded-box h1::first-letter {
+    font-size: 40px; 
+    color: #404070; /* Set the color for the first letter */
+}
+
+.rounded-box p {
+    position: absolute;
+    top: 100px; /* Adjust the bottom position as needed */
+    left: 520px; /* Adjust the right position as needed */
+    color: #000033; /* Set the color for the text */
+    font-size: 20px;
+    font-family: 'Courier', sans-serif;
+    line-height: 0.8; 
+}
+
+.bold-text {
+    font-size: 37px;
+    font-weight: bold;
+}
+
+.rounded-box .username-box-total {
+    position: absolute;
+    top: 240px; /* Adjust the top position as needed */
+    left: 520px; /* Adjust the left position as needed */
+    color: #000033;
+    width: 350px; /* Adjust the width as needed */
+    height: 30px;
+    padding: 10px; /* Optional: Add padding for better visual appearance */
+    border: 2px solid #000033; /* Set the border color as needed */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.rounded-box .username-box-total .user-icon {
+  
+    
+    width: 27px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Optional: Add border radius for a circular shape */
+    margin-right: 5px; /* Adjust the spacing between icon and text */
+    margin-top:0;
+}
+
+.rounded-box .username-box {
+    width: 100%; /* Fill the remaining width */
+    font-size: 16px;
+    border: none; /* Remove the border from the input field */
+    outline: none; /* Remove the input field outline */
+}
+
+
+.rounded-box .password-box-total {
+    position: absolute;
+    top: 325px; /* Adjust the top position as needed */
+    left: 520px; /* Adjust the left position as needed */
+    color: #000033;
+    width: 350px; /* Adjust the width as needed */
+    height: 30px;
+    padding: 10px; /* Optional: Add padding for better visual appearance */
+    border: 2px solid #000033; /* Set the border color as needed */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.rounded-box .password-box-total .password-icon {
+  
+    
+    width: 25px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Optional: Add border radius for a circular shape */
+    margin-right: 5px; /* Adjust the spacing between icon and text */
+    margin-top:0;
+}
+
+.rounded-box .password-box {
+    width: 100%; /* Fill the remaining width */
+    font-size: 16px;
+    border: none; /* Remove the border from the input field */
+    outline: none; /* Remove the input field outline */
+}
+
+.rounded-box .login-button {
+    position: absolute;
+    top: 400px; /* Adjust the top position as needed */
+    left: 520px; /* Adjust the left position as needed */
+    background-color: #000033;
+    color: white;
+    width: 100px;
+    height: 55px;
+    border-radius: 40px; 
+    font-size: 18px;
+    font-family: 'Courier', sans-serif;
+    font-weight: bold;
+}
+
+.rounded-box .login-button:hover {
+    background-color: #3b3b3b !important; /* Change background color on hover */
+}
+
+.rounded-box .signup .notLink{
+    color: #404070;
+}
+
+.rounded-box .signup .link{
+    color:#000033;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+.rounded-box .signup .link:hover {
+    color: #3b3b3b !important; /* Change background color on hover */
+}
+
+.rounded-box .signup {
+    position: absolute;
+    bottom: 160px; /* Adjust the bottom position as needed */
+    left: 730px; /* Adjust the right position as needed */
+    width: 500px;
+    height: auto;
+    display: block;
+    z-index: 1; /* Ensure the signup is above the semicircle */
+    font-size: 18px;
+    font-family: 'Courier', sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+    word-spacing: -2px;
+}
+
+
+
+body::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px; /* Adjust the height to control the size of the semicircle */
+    background-color: #000033;
+    border-radius: 40% 40% 0 0; /* Adjust border-radius for upward-facing semicircle */
+    z-index: 0;
+}

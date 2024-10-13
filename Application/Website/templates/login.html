@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Dakowdas</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/loginStyle.css') }}">
+        <style>
+        .error-message {
+            color: red;
+        }
+
+        .success-message {
+            color: green;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="rounded-box">
+            
+            <h1>Dakowdas</h1>
+            <img src="{{ url_for('static', filename='images/programmerIcon.png') }}">
+
+            
+            
+                
+            
+            <p>
+                
+                <br>
+                     <span class="bold-text">Welcome Back!</span>
+                </br>
+                <br>
+                    Login to continue
+                </br>
+
+                
+            
+            </p>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                {% if category == 'Error' %}
+                    <p class="error-message">{{ message }}</p>
+                {% elif category == 'Success' %}
+                    <p class="success-message">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+            {% endwith %}
+            <form id="loginForm" method="post" action="{{url_for('auth.login') }}">
+                <div class="username-box-total">
+                    <img src="{{ url_for('static', filename='images/userIcon.png') }}" class="user-icon">
+
+                    <input type="text" id="username" name="username" placeholder="Enter your username" class="username-box">
+                </div>
+                <div class="password-box-total">
+                    <img src="{{ url_for('static', filename='images/lock.png') }}" class="password-icon">
+
+                    <input type="password" id="password" name="password" placeholder="Enter your password" class="password-box">
+                </div>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+            
+            
+            
+            
+
+            <div class="signup">
+                <span class="notLink">New User?</span>
+                <a class="link" href="{{ url_for('auth.sign_up') }}">Sign Up</a>
+            </div>
+
+            
+            
+
+            
+
+        </div>
+    </body>
+
+</html>

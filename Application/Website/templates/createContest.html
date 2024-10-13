@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="main-content">
+        <h2>Create Contest</h2>
+
+        <!-- Contest Details Form -->
+        <form action="{{ url_for('views.create_contest') }}" method="post">
+            <label for="contestName">Contest Name:</label>
+            <input type="text" id="contestName" name="contestName" required>
+
+            <label for="division">Division:</label>
+            <input type="text" id="division" name="division" required>
+
+            <label for="contestLength">Contest Length (in minutes):</label>
+            <input type="number" id="contestLength" name="contestLength" required>
+
+            <label for="contestStartDate">Contest Start Date:</label>
+            <input type="datetime-local" id="contestStartDate" name="contestStartDate" required>
+
+            <label for="contestDescription">Contest Description:</label>
+            <textarea id="contestDescription" name="contestDescription" required></textarea>
+
+            <!-- Programming Problems Form -->
+            <h2>Add Programming Problems</h2>
+            <div id="programmingProblems">
+                <div class="problem-box">
+                    <label for="problemTitle">Problem Title:</label>
+                    <input type="text" name="problemTitle[]" required>
+
+                    <label for="difficultyLevel">Difficulty Level:</label>
+                    <input type="text" name="difficultyLevel[]" required>
+
+                    <label for="timeLimit">Time Limit:</label>
+                    <input type="text" name="timeLimit[]" required>
+
+                    <label for="memoryLimit">Memory Limit:</label>
+                    <input type="text" name="memoryLimit[]" required>
+
+                    <label for="problemDescription">Problem Description:</label>
+                    <textarea name="problemDescription[]" required></textarea>
+
+                    <!-- Remove Problem Button -->
+                    <button type="button" onclick="removeProblem(this)">Remove Problem</button>
+                </div>
+            </div>
+
+            <button type="button" onclick="addProblem()">Add Problem</button>
+            <button type="submit">Submit Contest</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to add a new problem box
+        function addProblem() {
+            var problemBox = document.querySelector('.problem-box').cloneNode(true);
+            document.getElementById('programmingProblems').appendChild(problemBox);
+        }
+
+        // Function to remove the current problem box
+        function removeProblem(button) {
+            var problemBox = button.parentNode;
+            if (document.querySelectorAll('.problem-box').length > 1) {
+                problemBox.parentNode.removeChild(problemBox);
+            } else {
+                alert("At least one problem is required.");
+            }
+        }
+    </script>
+
+{% endblock %}

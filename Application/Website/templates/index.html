@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+    <div class="main-content" style="margin-left:30px; margin-top:15px;">
+        
+        <h2 style="color:#000033; font-size: 40px;padding: 10px;">Announcements: </h2> 
+        
+        
+        {% for announcement in announcements %}
+            <div class="announcement">
+                <h3>{{ announcement[3] }}</h3> <!-- Display the announcement content as the title -->
+
+                <p>By <a href="{{ url_for('views.profileUser', user=announcement[1]) }}">{{ announcement[1] }}</a>, posted on: <i>{{ announcement[4].strftime('%B %d, %Y %H:%M') }}</i></p>
+                <p>Language: {{ announcement[2] }}</p>
+
+                <!-- Calculate and display time elapsed since the announcement -->
+                {% set time_difference = (now - announcement[4]) %}
+                <p>Time Elapsed: {{ time_difference.days }} days, {{ time_difference.seconds // 3600 }} hours, {{ (time_difference.seconds // 60) % 60 }} minutes ago</p>
+
+                <!-- Add the rest of the announcement content here -->
+                <!-- Replace this with your actual announcement content -->
+                <p>{{ announcement[3] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

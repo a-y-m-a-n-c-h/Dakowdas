@@ -1,0 +1,101 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dakowdas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <style>
+        
+    </style>
+    
+</head>
+
+<body>
+
+    <header>
+        <div class=myheader>
+            <div class="leftsectionofheader">
+                <img src="{{ url_for('static', filename='images/logo.png') }}">
+                <h1> Dakowdas </h1>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                    <li><a href="{{ url_for('views.contests') }}">Contests</a></li>
+                    <li><a href="{{ url_for('views.battles') }}">Battles</a></li>
+                    <li><a href="{{ url_for('views.problems') }}">Problems</a></li>
+                    <li><a href="{{ url_for('views.profile') }}">Profile</a></li>
+                    <li><a href="{{ url_for('auth.logout') }}">LogOut</a></li>
+                </ul>
+            </nav>
+
+            <div class="contactusbutton">
+                <a href="{{ url_for('views.contact') }}">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    
+
+    {% block content %}{% endblock %}
+
+    <!-- Right sidebar -->
+    <div class="right-sidebar">
+        <div class="user-search">
+            <h2>User Search</h2>
+            <!-- Updated button to trigger the form submission -->
+            <form id="userSearchForm" action="{{ url_for('views.userSearch') }}" method="post">
+                <input type="text" name="user" placeholder="Enter username">
+                <button type="button" onclick="submitUserSearch()">Search</button>
+            </form>
+
+            <!-- Add "View Messages" button linked to 'views.messages' -->
+            <button onclick="viewMessages()">View Messages</button>
+            {% if 'contestCreator' in current_user.roles %}
+            <button onclick="createContest()">Create Contest</button>
+            {% endif %}
+            {% if 'admin' in current_user.roles %}
+                <!-- Display admin information -->
+                <li>Role: {{ current_user.roles.admin[0] }}</li>
+                <li>Contribution: {{ current_user.roles.admin[1] }}</li>
+            {% endif %}
+            
+            {% if 'contestant' in current_user.roles %}
+                <!-- Display contestant information -->
+                <li>Username: {{ current_user.username }}</li>
+                <li>Rating: {{ current_user.roles.contestant[0] }}</li>
+            {% endif %}
+            
+            {% if 'contestCreator' in current_user.roles %}
+                <!-- Display creator information -->
+                <li>Assessment Score: {{ current_user.roles.contestCreator[0] }}</li>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Remove the toggle function and button
+        function submitUserSearch() {
+            // Get the form element
+            var form = document.getElementById('userSearchForm');
+            
+            // Submit the form
+            form.submit();
+        }
+
+        // New function to handle the "View Messages" button click
+        function viewMessages() {
+            window.location.href = "{{ url_for('views.messages') }}";
+        }
+        function createContest() {
+            window.location.href = "{{ url_for('views.create_contest') }}";
+        }
+    </script>
+
+</body>
+
+</html>

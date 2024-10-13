@@ -1,0 +1,171 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none; /* remove undelines from link*/
+    
+    
+}
+nav{
+    background-color: #E6E6FA;
+    margin-right: 50px;
+    height: 70px;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-top: 0px;
+}
+
+.myheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E6E6FA;
+    padding: 0px;
+    border-bottom: 2px solid #333;
+}
+
+.myheader .leftsectionofheader{
+    background-color: #E6E6FA;
+    display: flex;
+    align-items: center;
+
+}
+
+.myheader img {
+    width: 90px;
+    max-width: 100%; /* Ensure the image doesn't exceed the width of its container */
+}
+
+.myheader h1 {
+    margin: 0; /* Remove default margin for the heading */
+    padding: 2px;
+}
+
+
+
+
+
+.myheader h1{
+    color: #000033;
+    font-family: "Lucida Console";  
+    font-size: 50px; 
+    font-weight: bold; 
+    line-height: 48px; 
+    margin: 0; 
+    justify-content: left;
+
+}
+
+.myheader h1::first-letter {
+    font-size: 60px; 
+    color: #404070; /* Set the color for the first letter */
+}
+
+
+
+ul{ 
+
+
+}
+
+.contactusbutton a{
+    background-color: #E6E6FA;
+    margin-right:25px;
+    
+    justify-content: right;
+    font-size: 18px;
+    font-family: arial;
+    display: inline-block;
+    padding: 10px 20px;
+    color:#000033;
+    padding: 0 20px;
+
+
+}
+.contactusbutton a:hover {
+    color: #3b3b3b !important; /* Change background color on hover */
+}
+
+ul li{
+    list-style: none;
+    display: inline-block;
+    float: left;
+    line-height: 70px;
+}
+
+ul li a{
+    display: block;
+    font-size: 18px;
+    font-family: arial;
+    color:#000033;
+    padding: 0 20px;  
+}
+
+ul li a:hover {
+    color:#3b3b3b !important; /* Change background color on hover */
+}
+
+
+
+/* Add some styles for the sidebar */
+.right-sidebar {
+    background-color: #E6E6FA;
+    position: fixed;
+    top: 0;
+    right: -200px; /* Initially hidden outside the screen */
+    width: 200px;
+    height: 100%;
+
+    transition: 0.3s;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-sidebar:hover {
+    right: 0;
+}
+
+/* User Search section styling */
+.user-search {
+    margin-bottom: 20px;
+}
+
+.user-search input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.user-search button {
+    width: 100%;
+    padding: 8px;
+    background-color: #000033;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.announcement {
+    width: 1345px;
+    background-color: #E6E6FA;
+    border: 1px solid #000033;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.friend-status{
+    padding-top:100px;
+    width: 1000px;
+    background-color: #E6E6FA;
+    border: 1px solid #000033;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+}
+
+
+

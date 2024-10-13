@@ -1,0 +1,78 @@
+<!-- userProfile.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="margin-left:30px; margin-top:15px">
+
+    <h1 style="font-size:25px; color:#000033; padding-bottom:20px;">User Profile</h1>
+
+    {% if userInfo %}
+        <table>
+            <tr>
+                <td><strong style="font-size: 25px;color:#000033;">Username:</strong></td>
+                <td style="font-size: 25px;color:#000033;">{{ userInfo[0] }}</td>
+            </tr>
+            <tr>
+                <div style="padding-bottom:20px;">
+                <td><strong style="font-size: 25px;color:#000033; ">Email:</strong></td>
+                <td style="font-size: 25px;color:#000033;">{{ userInfo[1] }}</td>
+            </div>
+            </tr>
+            <!-- Add more rows for other user information... -->
+        </table>
+
+        {% if isFriend == -1 %}
+            <p>You are viewing your own profile. You can't add yourself as a friend.</p>
+        {% else %}
+            <p style="font-size: 25px;color:#000033; "><strong>Number of Friends:</strong> {{ nof }}</p>
+            <p style="font-size: 25px;color:#000033; "><strong>Number of Accepted Problems:</strong> {{ nOfProblems }}</p>
+            <p style="font-size: 25px;color:#000033;"><strong>Rating:</strong> {{ Rating }}</p>
+
+            <div class="friend-status">
+            <h2 style= "font-size:25px; color:#000033; padding-bottom:20px;">Friend Status</h2>
+            {% if isFriend %}
+                <p>This user is your friend since {{ timeStampFriend }}.</p>
+                <form method="post" action="{{ url_for('views.profileUser', user=userInfo[0]) }}">
+                    <input type="hidden" name="button" value="remove">
+                    <button type="submit" style="background-color: red;">Remove Friend</button>
+                </form>
+            {% else %}
+                <p>This user is not your friend.</p>
+                <form method="post" action="{{ url_for('views.profileUser', user=userInfo[0]) }}">
+                    <input type="hidden" name="button" value="add">
+                    <button type="submit" style="background-color: green;">Add Friend</button>
+                </form>
+            {% endif %}
+            </div>
+
+            <div  class="friend-status">
+            <!-- Add "Message User" button linking to messageUser route -->
+            <h2>Message User</h2>
+            <form method="get" action="{{ url_for('views.messageUser', user=userInfo[0]) }}">
+                <button type="submit">Message User</button>
+            </form>
+        </div>
+        {% endif %}
+
+    {% else %}
+        <p>User not found.</p>
+    {% endif %}
+    
+
+    <script>
+        // JavaScript to update isFriend if remove friend is clicked
+        document.addEventListener('DOMContentLoaded', function() {
+            var isFriend = {{ isFriend }};
+            var buttonValue = '{{ request.form.get("button") }}';
+
+            if (buttonValue === 'remove') {
+                isFriend = false;
+            }
+        });
+    </script>
+
+</div>
+    
+
+{% endblock %}

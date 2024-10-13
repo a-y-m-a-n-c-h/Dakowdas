@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="content-section" >
+        <h2>User Profile</h2>
+
+        <div class="profile-info">
+            <p><strong>Country:</strong> {{ current_user.country }}</p>
+            <p><strong>First Name:</strong> {{ current_user.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ current_user.last_name }}</p>
+            <p><strong>Username:</strong> {{ current_user.username }}</p>
+
+            <!-- Link to Friends page -->
+            <p><strong>Number of Friends:</strong> <a href="{{ url_for('views.friends') }}">{{ nof }}</a></p>
+
+            <p><strong>Problems Solved:</strong> <a href="{{ url_for('views.ps') }}">{{ nOfProblems }}</a></p>
+            <p><strong>Registration Date:</strong> {{ current_user.registration_date }}</p>
+            <p><strong>Rating:</strong> {{ Rating }}</p>
+        </div>
+    </section>
+
+{% endblock %}

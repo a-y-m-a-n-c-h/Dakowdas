@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Past Contests{% endblock %}
+
+{% block content %}
+    <h1>Past Contests</h1>
+
+    {% if pastContests %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Division</th>
+                    <th>Start Time</th>
+                    <th>Length</th>
+                    <th>Problems Solved</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contest in pastContests %}
+                    <tr>
+                        <td>{{ contest[0] }}</td>
+                        <td>{{ contest[1] }}</td>
+                        <td>{{ contest[2] }}</td>
+                        <td>{{ contest[3] }}</td>
+                        <td>{{ contest[4] if contest[4] is not none else "Did not participate" }}</td>
+                        <!-- Add more columns as needed -->
+                        <!-- Example: <td>{{ contest[5] }}</td> -->
+                        <!-- Example: <td>{{ contest[6] }}</td> -->
+                        <!-- ... -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No past contests available.</p>
+    {% endif %}
+{% endblock %}

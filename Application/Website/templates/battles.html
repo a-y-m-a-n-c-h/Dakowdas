@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="content-section">
+        <h2>Battles</h2>
+
+        <div class="battles-list">
+            {% if battles %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username 1</th>
+                            <th>Username 2</th>
+                            <th>Outcome</th>
+                            <th>Start Timestamp</th>
+                            <th>End Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for battle in battles %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ battle[1] }}</td>
+                                <td>{{ battle[2] }}</td>
+                                <td>
+                                    <div class="circle {% if battle[3] %}green{% else %}red{% endif %}"></div>
+                                </td>
+                                <td>{{ battle[4] }}</td>
+                                <td>{{ battle[5] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No battles to display.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <style>
+        .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+        }
+    </style>
+
+{% endblock %}

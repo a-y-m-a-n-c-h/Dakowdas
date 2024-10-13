@@ -1,0 +1,59 @@
+<!-- problems.html -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="rounded-box">
+    <h1>Dakowdas</h1>
+
+    <p>
+        <br>
+        <span class="bold-text">Problems Page</span>
+        </br>
+    </p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+        {% if category == 'Error' %}
+            <p class="error-message">{{ message }}</p>
+        {% elif category == 'Success' %}
+            <p class="success-message">{{ message }}</p>
+        {% endif %}
+    {% endfor %}
+    {% endwith %}
+
+    <!-- Display problems in a table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>RoundDifficulty</th>
+                <th>Title</th>
+                <th>Accepted</th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for problem in problems %}
+                <tr>
+                    <td {% if problem[4] %}class="accepted-row"{% endif %}>{{ problem[1] }}{{ problem[2] }}</td>
+                    <td><a href="{{ url_for('views.problemDesc', problemTitle=problem[3]) }}">{{ problem[3] }}</a></td>
+                    <td><a href="{{ url_for('views.problemSubmissions', problemTitle=problem[3], problemNumber=problem[0]) }}">{{ problem[5] }}</a></td>
+                    <td>
+                        {% for tag in tags[problem[0]] %}
+                            {{ tag }}
+                            {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

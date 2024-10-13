@@ -1,0 +1,38 @@
+<!-- problemSubmissions.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="rounded-box">
+    <h1>{{ problemTitle }} Submissions</h1>
+
+    {% if result %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Submission ID</th>
+                    <th>Programming Language</th>
+                    <th>Verdict</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in result %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No accepted submissions for this problem.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!-- messages.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Messages</h1>
+
+    {% if messages %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Sender</th>
+                    <th>Content</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in messages %}
+                    <tr>
+                        <td>{{ message[0] }}</td>
+                        <td>{{ message[1] }}</td>
+                        <td>{{ message[2] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No messages available.</p>
+    {% endif %}
+
+    <!-- Add any additional content or features as needed -->
+
+{% endblock %}
