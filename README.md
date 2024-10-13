@@ -54,6 +54,6 @@ http://localhost:5000
 
 If you encounter any issues or have questions, please feel free to contact:
 
-- **Dana Kossaybati** (Group Leader): [dak39@mail.aub.edu](mailto:dak39@mail.aub.edu)
+- **Dana Kossaybati**: [dak39@mail.aub.edu](mailto:dak39@mail.aub.edu)
 - **Mohammad Khaled Charaf**: [mmc51@mail.aub.edu](mailto:mmc51@mail.aub.edu)
 - **Mohammad Ayman Charaf**: [mmc50@mail.aub.edu](mailto:mmc50@mail.aub.edu)
